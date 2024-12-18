@@ -3,9 +3,9 @@ import { artworks } from '../data/artworks';
 import { setupAdvancedLighting } from './lighting';
 import { createArchitecture } from './architecture';
 
-export const setupEnvironment = (scene: THREE.Scene) => {
+export const setupEnvironment = (scene: THREE.Scene, renderer: THREE.WebGLRenderer) => {
   // Create environment map
-  const pmremGenerator = new THREE.PMREMGenerator(new THREE.WebGLRenderer());
+  const pmremGenerator = new THREE.PMREMGenerator(renderer);
   scene.environment = pmremGenerator.fromScene(new THREE.Scene()).texture;
   pmremGenerator.dispose();
 
@@ -53,7 +53,7 @@ export const loadArtworks = (scene: THREE.Scene) => {
     // Create artwork canvas with improved material
     const artworkGeometry = new THREE.PlaneGeometry(2, 2);
     textureLoader.load(artwork.imageUrl, (texture) => {
-      texture.encoding = THREE.sRGBEncoding;
+      texture.colorSpace = THREE.SRGBColorSpace;
       const artworkMaterial = new THREE.MeshStandardMaterial({
         map: texture,
         side: THREE.FrontSide,

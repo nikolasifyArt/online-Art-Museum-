@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import * as THREE from 'three';
 import GalleryScene from './components/GalleryScene';
 import InfoPanel from './components/InfoPanel';

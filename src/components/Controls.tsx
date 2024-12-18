@@ -36,7 +36,7 @@ const Controls: React.FC<ControlsProps> = ({
       </button>
       <button
         onClick={onMoveRight}
-        className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+       className="p-2 hover:bg-gray-100 rounded-full transition-colors"
       >
         <ArrowRight className="w-6 h-6" />
       </button>
@@ -44,4 +44,4 @@ const Controls: React.FC<ControlsProps> = ({
   );
 };
 
-export default Controls;
+export default Controls; 

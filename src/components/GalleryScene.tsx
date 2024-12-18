@@ -46,7 +46,7 @@ const GalleryScene: React.FC<GallerySceneProps> = ({ onCameraReady }) => {
     rendererRef.current = renderer;
 
     // Setup scene environment and artworks
-    setupEnvironment(scene);
+    setupEnvironment(scene, renderer);
     loadArtworks(scene);
 
     // Setup controls
