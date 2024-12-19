@@ -2,11 +2,11 @@ import * as THREE from 'three';
 
 export const setupAdvancedLighting = (scene: THREE.Scene) => {
   // Ambient light for base illumination
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+  const ambientLight = new THREE.AmbientLight(0xff_ff_ff, 0.5);
   scene.add(ambientLight);
 
   // Main directional light (simulating sun)
-  const mainLight = new THREE.DirectionalLight(0xffffff, 0.8);
+  const mainLight = new THREE.DirectionalLight(0xff_ff_ff, 0.8);
   mainLight.position.set(5, 10, 5);
   mainLight.castShadow = true;
   mainLight.shadow.mapSize.width = 2048;
@@ -18,7 +18,7 @@ export const setupAdvancedLighting = (scene: THREE.Scene) => {
 
   // Spotlights for artwork highlighting
   const createSpotlight = (x: number, z: number) => {
-    const spotlight = new THREE.SpotLight(0xffffff, 1);
+    const spotlight = new THREE.SpotLight(0xff_ff_ff, 1);
     spotlight.position.set(x, 4, z);
     spotlight.angle = Math.PI / 6;
     spotlight.penumbra = 0.2;
@@ -31,9 +31,9 @@ export const setupAdvancedLighting = (scene: THREE.Scene) => {
   };
 
   // Add spotlights for each wall
-  [-4, 0, 4].forEach(x => {
+  for (const x of [-4, 0, 4]) {
     scene.add(createSpotlight(x, -4.5));
-  });
+  }
 
   // Add subtle point lights for ambient glow
   const pointLight1 = new THREE.PointLight(0xffffff, 0.3);
